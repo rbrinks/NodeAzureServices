@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('qna', {
+        category: 'Azure',
+        color: '#7ab51d',
+        defaults: {
+            url: {
+                value:"",
+                required:true
+            },
+            name: {
+                value:""
+            }
+        },
+        credentials: {
+           key: {
+               type: "password",
+               required:true
+            }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "qna.png",
+        label: function() {
+            return this.name||"qna";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="qna">
+    <div class="form-row">
+        <label for="node-input-url"><i class="icon-tag"></i>Your QnA endpoint address</label>
+        <input type="text" id="node-input-url" placeholder="Get your endpoint from qnamaker.ai">
+    </div>
+    <div class="form-row">
+        <label for="node-input-key"><i class="icon-tag"></i>EndpointKey (<a href="https://www.qnamaker.ai" target="_blank">Get key</a>)</label>
+        <input type="password" id="node-input-key" placeholder="Get your endpointkey from qnamaker.ai">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="qna">
+    <p>QnA API Microsoft</p>
+</script>
